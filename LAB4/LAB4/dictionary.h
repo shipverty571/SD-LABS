@@ -5,6 +5,7 @@ struct Dictionary
 {
 	HashTable* Table;
 };
+
 Dictionary* CreateDictionary();
 bool InsertElement(Dictionary* dictionary, Element* element, std::string key);
 bool RemoveElement(Dictionary* dictionary, std::string key);
