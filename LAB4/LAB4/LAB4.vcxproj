@@ -127,7 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dictionary.cpp" />
+    <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="LAB4.cpp" />
+    <ClCompile Include="Menu.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Chain.h" />
+    <ClInclude Include="Dictionary.h" />
+    <ClInclude Include="Element.h" />
+    <ClInclude Include="HashTable.h" />
+    <ClInclude Include="Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
