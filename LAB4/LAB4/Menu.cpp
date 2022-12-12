@@ -49,7 +49,7 @@ string InputString(string outputString)
 
 void MenuDictionary()
 {
-	Dictionary *dictionary = CreateDictionary();
+	Dictionary* dictionary = new Dictionary();
 	cout << "Выберите пункт меню" << endl;
 	while (true)
 	{
@@ -70,7 +70,6 @@ void MenuDictionary()
 				string key = InputString("Введите ключ");
 				string value = InputString("Введите значение");
 				Element* element = CreateElement(key, value);
-				int index = HashFunc(key, dictionary->Table->Size);
 				if (!InsertElement(dictionary, element, key))
 				{
 					cout << "Такой элемент уже существует" << endl;
@@ -190,19 +189,19 @@ void PrintHashTable(HashTable* table)
 
 		if (current != nullptr)
 		{
-			cout << "[" << i << "] Key: " <<current->Key << " Value: " << current->Value << endl;
+			cout << "[" << i << "] " <<current->Key << " : " << current->Value << endl;
 			current = current->Next;
 
 			while (current != nullptr)
 			{
 				cout << " >> ";
-				cout << "[" << i << "] Key: " << current->Key << " Value: " << current->Value << endl;
+				cout << "[" << i << "] " << current->Key << " : " << current->Value << endl;
 				current = current->Next;
 			}
 		}
 		else
 		{
-			cout << "[" << i << "] Key: < > Value: < >\n";
+			cout << "[" << i << "] _ : _" << endl;
 		}
 	}
 }
