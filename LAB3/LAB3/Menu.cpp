@@ -96,8 +96,7 @@ void PrintStack(Stack* stack)
 
 void PrintBuffer(RingBuffer* buffer)
 {
-	cout << "IndexInput: " << buffer->IndexInput->Data << endl;
-	cout << "IndexOutput: " << buffer->IndexOutput->Data << endl;
+
 
 	Element* current = buffer->Head;
 	for (int i = 0; i < buffer->Size; i++)
@@ -118,6 +117,7 @@ void PrintQueueBuffer(QueueRingBuffer* queue)
 {
 	if (queue->Buffer->Size)
 	{
+		cout << "value index: " << queue->Buffer->IndexOutput->Data << endl;
 		Element* element = queue->Buffer->IndexOutput;
 		for (int i = 0; i < queue->Buffer->Size; i++)
 		{
@@ -242,7 +242,7 @@ void MenuQueueStack()
 			case 2:
 			{
 				if (!QueueStackIsCreated(queue)) break;
-				int value = InputValue("");
+				int value = InputValue("¬ведите число");
 				if (!Enqueue(queue, value))
 				{
 					cout << "ќчередь переполнена" << endl;
