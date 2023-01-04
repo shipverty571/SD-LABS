@@ -28,6 +28,7 @@ Element* CreateElement(std::string key, std::string value)
 
 bool InsertElement(HashTable* table, Element* element, int index)
 {
+	
 	Element* currentElement = table->Array[index]->Head;
 	while (currentElement != nullptr)
 	{
@@ -48,6 +49,11 @@ bool InsertElement(HashTable* table, Element* element, int index)
 	}
 	table->Array[index]->Size++;
 	table->CountFilledElements++;
+	int fullValue = table->Size * 4 / 3;
+	if (table->CountFilledElements == fullValue)
+	{
+		Rehashing(*table);
+	}
 	return true;
 }
 
@@ -131,40 +137,35 @@ bool RemoveElement(HashTable* table, std::string key)
 	return true;
 }
 
-HashTable* Rehashing(HashTable* table)
+void Rehashing(HashTable& table)
 {
-	int newSize = table->Size;
+	int newSize = table.Size;
 
-	if (table->Size == 1)
+	if (table.Size == 1)
 	{
 		newSize++;
 	}
 	else
 	{
-		newSize *= table->GrowthFactor;
+		newSize *= table.GrowthFactor;
 	}
-	HashTable* newTable = CreateTable(newSize);
-	for (int i = 0; i < table->Size; i++)
+	HashTable newTable = *CreateTable(newSize);
+	for (int i = 0; i < table.Size; i++)
 	{
-		Element* current = table->Array[i]->Head;
+		Element* current = table.Array[i]->Head;
 
 		while (current != nullptr)
 		{
-			int index = HashFunc(current->Key, newTable->Size);
-			InsertElement(newTable, current, index);
-			table->Array[i]->Head = current->Next;
+			int index = HashFunc(current->Key, newTable.Size);
+			InsertElement(&newTable, current, index);
+			table.Array[i]->Head = current->Next;
 			current->Next = nullptr;
-			current = table->Array[i]->Head;
+			current = table.Array[i]->Head;
 		}
 	}
-
-	for (int i = 0; i < table->Size; i++)
-	{
-		delete table->Array[i];
-	}
-	delete[] table->Array;
-	delete table;
-	return newTable;
+	table.CountFilledElements = newTable.CountFilledElements;
+	table.Array = newTable.Array;
+	table.Size = newTable.Size;
 }
 
 bool FindElement(HashTable* table, std::string key, std::string& data)

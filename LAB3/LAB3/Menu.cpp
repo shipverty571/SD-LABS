@@ -96,8 +96,6 @@ void PrintStack(Stack* stack)
 
 void PrintBuffer(RingBuffer* buffer)
 {
-
-
 	Element* current = buffer->Head;
 	for (int i = 0; i < buffer->Size; i++)
 	{
@@ -216,7 +214,6 @@ void MenuQueueRingBuffer()
 void MenuQueueStack()
 {
 	QueueStack* queue = nullptr;
-
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;
@@ -287,7 +284,6 @@ void MenuQueueStack()
 void MenuRingBuffer()
 {
 	RingBuffer* buffer = nullptr;
-
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;
@@ -362,7 +358,6 @@ void MenuRingBuffer()
 void MenuStack()
 {
 	Stack* stack = nullptr;
-	
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;

@@ -87,9 +87,8 @@ bool RemoveElement(HashTable* table, std::string key);
 /**
  * \brief Производит перехеширование таблицы.
  * \param table Таблица.
- * \return Возвращает новую таблицу с перехешированными данными.
  */
-HashTable* Rehashing(HashTable* table);
+void Rehashing(HashTable& table);
 
 /**
  * \brief Производит поиск элемента с заданным ключом.

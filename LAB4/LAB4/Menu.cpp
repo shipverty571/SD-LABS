@@ -53,11 +53,6 @@ void MenuDictionary()
 	cout << "Выберите пункт меню" << endl;
 	while (true)
 	{
-		int fullValue = dictionary->Table->Size * 4 / 3;
-		if (dictionary->Table->CountFilledElements == fullValue)
-		{
-			dictionary->Table = Rehashing(dictionary->Table);
-		}
 		cout << "1. Добавить элемент в словарь" << endl;
 		cout << "2. Удалить элемент из словаря" << endl;
 		cout << "3. Найти элемент по ключу" << endl;
@@ -119,11 +114,7 @@ void MenuHashTable()
 	cout << "Выберите пункт меню" << endl;
 	while(true)
 	{
-		int fullValue = table->Size * 4 / 3;
-		if (table->CountFilledElements == fullValue)
-		{
-			table = Rehashing(table);
-		}
+		//TODO: убрать в HashTable 
 		cout << "1. Добавить элемент в таблицу" << endl;
 		cout << "2. Удалить элемент из таблицы" << endl;
 		cout << "3. Найти элемент по ключу" << endl;
