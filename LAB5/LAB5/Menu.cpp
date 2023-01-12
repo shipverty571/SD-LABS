@@ -154,7 +154,7 @@ void PrintTreap(TreapElement* current, int level)
 		{
 			cout << "   ";
 		}
-		cout << current->Priority << " : " << current->Data << endl;
+		cout << current->Data << " : " << current->Priority << endl;
 		PrintTreap(current->Left, level + 1);
 	}
 }

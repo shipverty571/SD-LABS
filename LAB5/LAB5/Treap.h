@@ -26,19 +26,6 @@ struct Treap
 };
 
 /**
- * \brief Инициализирует дерево.
- * \return Возвращает дерево.
- */
-Treap* Initialize();
-
-/**
- * \brief Вставляет элемент в дерево.
- * \param treap Дерево.
- * \param element Элемент.
- */
-void InsertElement(Treap* treap, TreapElement* element);
-
-/**
  * \brief Осуществляет поиск родителя элемента.
  * \param currentElement Элемент.
  * \param data Значение.

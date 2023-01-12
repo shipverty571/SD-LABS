@@ -2,43 +2,6 @@
 #include <cstdlib>
 #include <ctime>
 
-
-void InsertElement(Treap* treap, TreapElement* element)
-{
-	if (treap->Root == nullptr)
-	{
-		treap->Root = element;
-		return;
-	}
-	TreapElement* elementPrev = SearchParentElement(treap->Root, element->Data);
-	if (elementPrev->Data > element->Data)
-	{
-		elementPrev->Left = element;
-	}
-	else if (elementPrev->Data == element->Data)
-	{
-		if (elementPrev->Left)
-		{
-			element->Left = elementPrev->Left;
-			elementPrev->Left = nullptr;
-		}
-		if (elementPrev->Right)
-		{
-			element->Right = elementPrev->Right;
-		}
-		elementPrev->Right = element;
-		if (elementPrev == treap->Root)
-		{
-			elementPrev->Left = element->Left;
-			element->Left = nullptr;
-		}
-	}
-	else
-	{
-		elementPrev->Right = element;
-	}
-}
-
 TreapElement* SearchParentElement(TreapElement* currentElement, int data)
 {
 	if ((currentElement->Data < data) && (currentElement->Right == nullptr)
