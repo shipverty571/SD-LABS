@@ -114,7 +114,6 @@ void MenuHashTable()
 	cout << "Выберите пункт меню" << endl;
 	while(true)
 	{
-		//TODO: убрать в HashTable 
 		cout << "1. Добавить элемент в таблицу" << endl;
 		cout << "2. Удалить элемент из таблицы" << endl;
 		cout << "3. Найти элемент по ключу" << endl;

@@ -28,7 +28,6 @@ Element* CreateElement(std::string key, std::string value)
 
 bool InsertElement(HashTable* table, Element* element, int index)
 {
-	
 	Element* currentElement = table->Array[index]->Head;
 	while (currentElement != nullptr)
 	{
