@@ -26,7 +26,7 @@ void CreateArrayFromMenu(DynamicArray* dynamicArray)
 		count = InputValue();
 		if (count <= 0)
 		{
-			cout << "Количество элементов в массиве должно быть больше 0"
+			cout << "Количество элементов в массиве должно быть больше 0."
 				<< " Попробуйте снова" << endl;
 			continue;
 		}
@@ -219,6 +219,11 @@ void LinearSearchFromMenu(DynamicArray* dynamicArray)
 
 void BinarySearchFromMenu(DynamicArray* dynamicArray)
 {
+	if (!DynamicArrayIsCreated(dynamicArray))
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
 	if (dynamicArray->IsSorted == false)
 	{
 		cout << "Массив не отсортирован" << endl;
