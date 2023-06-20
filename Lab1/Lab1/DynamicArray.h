@@ -28,7 +28,7 @@ struct DynamicArray
 	const int GrowthFactor = 2;
 
 	/**
-	 * \brief Создает экземпляр класса DynamicArray
+	 * \brief Создает экземпляр класса DynamicArray.
 	 */
 	DynamicArray()
 	{

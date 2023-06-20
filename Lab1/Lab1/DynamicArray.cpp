@@ -18,7 +18,6 @@ void ResizeArray(DynamicArray* dynamicArray)
 	}
 
 	int* tempArray = new int[dynamicArray->Capacity];
-
 	for (int i = 0; i < dynamicArray->Length - 1; i++)
 	{
 		tempArray[i] = dynamicArray->Array[i];
@@ -38,7 +37,6 @@ void AddElement(DynamicArray* dynamicArray, int value)
 void GetArrayRandom(DynamicArray* dynamicArray, int length)
 {
 	srand(time(nullptr));
-
 	for (int i = 0; i < length; i++)
 	{
 		AddElement(dynamicArray, rand());
@@ -94,7 +92,6 @@ int BinarySearch(DynamicArray* dynamicArray, int value)
 	int left  = 0;
 	int right = dynamicArray->Length;
 	int middle;
-
 	while ((left <= right) && (flag != true))
 	{
 		middle = (left + right) / 2;
@@ -112,7 +109,6 @@ int BinarySearch(DynamicArray* dynamicArray, int value)
 			left = middle + 1;
 		}
 	}
-
 	if (!flag)
 	{
 		middle = -1;
@@ -127,7 +123,6 @@ void RemoveElement(DynamicArray* dynamicArray, int index)
 	{
 		dynamicArray->Array[i] = dynamicArray->Array[i + 1];
 	}
-
 	dynamicArray->Length -= 1;
 	ResizeArray(dynamicArray);
 }

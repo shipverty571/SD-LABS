@@ -96,9 +96,6 @@ void PrintStack(Stack* stack)
 
 void PrintBuffer(RingBuffer* buffer)
 {
-	cout << "IndexInput: " << buffer->IndexInput->Data << endl;
-	cout << "IndexOutput: " << buffer->IndexOutput->Data << endl;
-
 	Element* current = buffer->Head;
 	for (int i = 0; i < buffer->Size; i++)
 	{
@@ -118,6 +115,7 @@ void PrintQueueBuffer(QueueRingBuffer* queue)
 {
 	if (queue->Buffer->Size)
 	{
+		cout << "value index: " << queue->Buffer->IndexOutput->Data << endl;
 		Element* element = queue->Buffer->IndexOutput;
 		for (int i = 0; i < queue->Buffer->Size; i++)
 		{
@@ -216,7 +214,6 @@ void MenuQueueRingBuffer()
 void MenuQueueStack()
 {
 	QueueStack* queue = nullptr;
-
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;
@@ -242,7 +239,7 @@ void MenuQueueStack()
 			case 2:
 			{
 				if (!QueueStackIsCreated(queue)) break;
-				int value = InputValue("");
+				int value = InputValue("Введите число");
 				if (!Enqueue(queue, value))
 				{
 					cout << "Очередь переполнена" << endl;
@@ -287,7 +284,6 @@ void MenuQueueStack()
 void MenuRingBuffer()
 {
 	RingBuffer* buffer = nullptr;
-
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;
@@ -362,7 +358,6 @@ void MenuRingBuffer()
 void MenuStack()
 {
 	Stack* stack = nullptr;
-	
 	while (true)
 	{
 		cout << "Выберите действие:" << endl;

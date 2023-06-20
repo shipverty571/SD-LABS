@@ -6,6 +6,9 @@
  */
 struct QueueRingBuffer
 {
+	/**
+	 * \brief Αστεπ.
+	 */
 	RingBuffer* Buffer;
 };
 

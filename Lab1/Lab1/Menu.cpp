@@ -21,18 +21,15 @@ void CreateArrayFromMenu(DynamicArray* dynamicArray)
 {
 	int count;
 	cout << "Введите количество элементов массива" << endl;
-
 	while (true)
 	{
 		count = InputValue();
-
 		if (count <= 0)
 		{
-			cout << "Количество элементов в массиве должно быть больше 0"
+			cout << "Количество элементов в массиве должно быть больше 0."
 				<< " Попробуйте снова" << endl;
 			continue;
 		}
-
 		break;
 	}
 	
@@ -56,7 +53,6 @@ void CreateArrayFromMenu(DynamicArray* dynamicArray)
 					int value = InputValue();
 					AddElement(dynamicArray, value);
 				}
-
 				cout << endl;
 				return;
 			default:
@@ -107,7 +103,6 @@ void RemoveElementFromMenu(DynamicArray* dynamicArray)
 	}
 
 	int index;
-
 	while (true)
 	{
 		cout << "Введите индекс" << endl;
@@ -138,20 +133,16 @@ void InsertElementFromMenu(DynamicArray* dynamicArray)
 		return;
 	}
 
-	//TODO:
-	int index;
-
 	cout << "Введите число" << endl;
 	int value = InputValue();
 	cout << "Выберите:"                                << endl;
 	cout << "1. Вставить в начало"                     << endl;
 	cout << "2. Вставить после определенного элемента" << endl;
 	cout << "3. Вставить в конец"                      << endl;
-
+	int index;
 	while (true)
 	{
 		int key = InputValue();
-
 		switch (key)
 		{
 			case 1:
@@ -216,7 +207,6 @@ void LinearSearchFromMenu(DynamicArray* dynamicArray)
 	cout << "Введите число" << endl;
 	int value = InputValue();
 	int index = LinearSearch(dynamicArray, value);
-
 	if (index == -1)
 	{
 		cout << "Элемент не найден" << endl;
@@ -229,6 +219,11 @@ void LinearSearchFromMenu(DynamicArray* dynamicArray)
 
 void BinarySearchFromMenu(DynamicArray* dynamicArray)
 {
+	if (!DynamicArrayIsCreated(dynamicArray))
+	{
+		cout << "Массив не создан" << endl;
+		return;
+	}
 	if (dynamicArray->IsSorted == false)
 	{
 		cout << "Массив не отсортирован" << endl;
@@ -266,7 +261,6 @@ void Menu(DynamicArray* dynamicArray)
 		cout << "8. Бинарный поиск"            << endl;
 		cout << "9. Выйти"                     << endl;
 		int key = InputValue();
-		
 		switch (key)
 		{
 			case 1:

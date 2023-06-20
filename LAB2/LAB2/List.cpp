@@ -53,7 +53,6 @@ void InsertElementInLastPosition(List* list, int data)
 void GetRandomList(List* list, int count)
 {
 	srand(time(nullptr));
-
 	for (int i = 0; i < count; i++)
 	{
 		InsertElementInLastPosition(list, rand());
@@ -62,7 +61,6 @@ void GetRandomList(List* list, int count)
 
 void InsertElementAfterPosition(List* list, int data, int index)
 {
-	
 	if (index == list->Length-1)
 	{
 		InsertElementInLastPosition(list, data);
@@ -75,7 +73,6 @@ void InsertElementAfterPosition(List* list, int data, int index)
 	{
 		tempElement = tempElement->Next;
 	}
-
 	Element* element = new Element;
 	element->Data = data;
 	element->Next = tempElement->Next;
@@ -100,7 +97,6 @@ void InsertElementBeforePosition(List* list, int data, int index)
 	{
 		tempElement = tempElement->Next;
 	}
-
 	Element* element = new Element;
 	element->Data = data;
 	element->Next = tempElement;
@@ -174,7 +170,6 @@ void RemoveElement(List* list, int index)
 	{
 		tempElement = tempElement->Next;
 	}
-
 	tempElement->Prev->Next = tempElement->Next;
 	tempElement->Next->Prev = tempElement->Prev;
 	delete tempElement;
@@ -186,7 +181,6 @@ void RemoveElement(List* list, int index)
 void SortList(List* list)
 {
 	Element* first = list->Head;
-
 	for (int i = 0; i < list->Length; i++)
 	{
 		for (int j = 0; j < list->Length-1; j++)
@@ -195,15 +189,12 @@ void SortList(List* list)
 			if (first->Next == nullptr) break;
 
 			Element* second = first->Next;
-
 			if (first->Data > second->Data)
 			{
 				SwapElements(list, first, second);
 			}
-
 			first = first->Next;
 		}
-
 		first = list->Head;
 	}
 }
@@ -212,7 +203,6 @@ int LinearSearch(List* list, int value)
 {
 	Element* element = list->Head;
 	int index = -1;
-
 	for (int i = 0; i < list->Length; i++)
 	{
 		if (element->Data == value)
@@ -220,7 +210,6 @@ int LinearSearch(List* list, int value)
 			index = i;
 			break;
 		}
-
 		element = element->Next;
 	}
 

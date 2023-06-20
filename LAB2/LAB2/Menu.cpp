@@ -68,7 +68,6 @@ void CreateListFromMenu(List* list)
 {
 	int count;
 	cout << "Введите количество элементов списка" << endl;
-
 	while (true)
 	{
 		count = InputValue("");
@@ -89,23 +88,22 @@ void CreateListFromMenu(List* list)
 	while (true)
 	{
 		int key = InputValue("");
-
 		switch (key)
 		{
-		case 1:
-			GetRandomList(list, count);
-			break;
-		case 2:
-			for (int i = 0; i < count; i++)
-			{
-				cout << "Введите " << i << " элемент массива: ";
-				int value = InputValue("");
-				InsertElementInLastPosition(list, value);
-			}
-			break;
-		default:
-			cout << "Введено неверное значение. Попробуйте снова";
-			break;
+			case 1:
+				GetRandomList(list, count);
+				break;
+			case 2:
+				for (int i = 0; i < count; i++)
+				{
+					cout << "Введите " << i << " элемент массива: ";
+					int value = InputValue("");
+					InsertElementInLastPosition(list, value);
+				}
+				break;
+			default:
+				cout << "Введено неверное значение. Попробуйте снова";
+				break;
 		}
 
 		cout << endl;
@@ -132,9 +130,6 @@ void InsertElementInLastPositionFromMenu(List* list)
 void InsertElementAfterPositionFromMenu(List* list)
 {
 	if (!ListIsCreated(list)) return;
-
-	
-
 	if (list->Length == 0)
 	{
 		cout << "В списке нет элементов" << endl;
@@ -145,35 +140,28 @@ void InsertElementAfterPositionFromMenu(List* list)
 	while (true)
 	{
 		index = InputValue("Введите индекс");
-
 		if (!IndexValidator(list, index)) continue;
-
 		break;
 	}
 
 	int data = InputValue("Введите значение элемента");
-
 	InsertElementAfterPosition(list, data, index);
 }
 
 void InsertElementBeforePositionFromMenu(List* list)
 {
 	if (!ListIsCreated(list)) return;
-
-	int index;
-
 	if (list->Length == 0)
 	{
 		cout << "В списке нет элементов" << endl;
 		return;
 	}
 
+	int index;
 	while (true)
 	{
 		index = InputValue("Введите индекс");
-
 		if (!IndexValidator(list, index)) continue;
-
 		break;
 	}
 
@@ -184,7 +172,6 @@ void InsertElementBeforePositionFromMenu(List* list)
 void ShowListFromMenu(List* list)
 {
 	if (!ListIsCreated(list)) return;
-
 	if (list->Length == 0)
 	{
 		cout << "В списке нет элементов" << endl;
@@ -192,7 +179,6 @@ void ShowListFromMenu(List* list)
 	}
 
 	Element* tempElement = list->Head;
-
 	while (tempElement != nullptr)
 	{
 		cout << tempElement->Data << " ";
@@ -206,20 +192,17 @@ void RemoveElementFromMenu(List* list)
 {
 	if (!ListIsCreated(list)) return;
 
-	int index;
-
 	if (list->Length == 0)
 	{
 		cout << "В списке нет элементов" << endl;
 		return;
 	}
 
+	int index;
 	while (true)
 	{
 		index = InputValue("Введите индекс");
-
 		if (!IndexValidator(list, index)) continue;
-
 		break;
 	}
 
@@ -229,7 +212,6 @@ void RemoveElementFromMenu(List* list)
 void SortListFromMenu(List* list)
 {
 	if (!ListIsCreated(list)) return;
-
 	if (list->Length == 0)
 	{
 		cout << "В списке нет элементов" << endl;
@@ -245,7 +227,6 @@ void LinearSearchFromMenu(List* list)
 	
 	int value = InputValue("Введите число");
 	int index = LinearSearch(list, value);
-
 	if (index == -1)
 	{
 		cout << "Элемент не найден" << endl;
@@ -260,8 +241,8 @@ void Menu(List* list)
 {
 	cout << "Добро пожаловать!" << endl;
 	cout << "Выберите функцию из списка ниже" << endl;
-	list = nullptr;
 
+	list = nullptr;
 	while (true)
 	{
 		cout << "1. Создать список" << endl;
